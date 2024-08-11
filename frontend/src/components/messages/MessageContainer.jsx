@@ -1,24 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Messages from './Messages'
 import MessageInput from './MessageInput'
 import { LuMessagesSquare } from "react-icons/lu";
+import useConversation from '../../zustand/useConversation';
 
 const MessageContainer = () => {
-    const noChatSelected = true;
+
+    const {selectedConversation,setSelectedConversation} = useConversation();
+    useEffect(() => {
+		// cleanup function (unmounts)
+		return () => setSelectedConversation(null);
+	}, [setSelectedConversation]);
+
+
     return (
+
         <div className='md:min-w-[450px] flex flex-col'>
-            {noChatSelected ?(
-                <NoChatSelected/>
-            ):(
-                <>
-                <div className="py-2 mb-2 bg-slate-500">
-                    <span className="label-text">To:</span>
-                    <span className="font-bold text-gray-900">Dr Doom</span>
-                </div>
-                <Messages />
-                <MessageInput />
-            </> 
-            )}
+            {!selectedConversation ? (
+				<NoChatSelected />
+			) : (
+				<>
+					{/* Header */}
+					<div className='bg-slate-500 px-4 py-2 mb-2'>
+						<span className='label-text'>To:</span>{" "}
+						<span className='text-gray-900 font-bold'>{selectedConversation.fullName}</span>
+					</div>
+					<Messages />
+					<MessageInput />
+				</>
+			)}
            
         </div>
     )

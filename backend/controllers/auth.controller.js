@@ -54,6 +54,7 @@ const hashedPassword = await bcrypt.hash(password,salt);
             fullName,
             username,
             password:hashedPassword,
+           
             gender,
             profilePic:gender ==="male"?boyProfilePic:girlProfilePic
         });
