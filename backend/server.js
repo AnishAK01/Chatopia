@@ -14,9 +14,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 
-app.get("/",(req,res)=>{
-    res.send("Hi welcome to new prj!!")
-})
+
 
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
