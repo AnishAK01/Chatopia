@@ -1,4 +1,3 @@
-import express from "express";
 import dotenv from "dotenv";
 import authRoutes from "./Routes/auth.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
@@ -6,9 +5,10 @@ import messageRoutes from "./Routes/message.routes.js"
 import userRoutes from "./Routes/user.routes.js"
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import express from 'express';
 
 const app = express();
-const PORT =   process.env.PORT || 5000;
+const PORT =   process.env.PORT || 8000;
 const __dirname = path.resolve();
 dotenv.config();
 app.use(express.json());
