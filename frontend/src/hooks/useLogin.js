@@ -13,7 +13,7 @@ const useLogin = () => {
         if (!success) return;
         setLoading(true)
         try {
-            const res = await fetch("/api/auth/login",{
+            const res = await fetch("https://chatopia-anishs-projects-f08bc441.vercel.app/login",{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify({username,password})

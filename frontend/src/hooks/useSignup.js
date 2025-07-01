@@ -16,7 +16,7 @@ const useSignup = () => {
         setLoading(true);
         try {
 
-            const res = await fetch("/api/auth/signup", {
+            const res = await fetch("https://chatopia-anishs-projects-f08bc441.vercel.app/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ fullName, username, password, gender, confirmPassword })
