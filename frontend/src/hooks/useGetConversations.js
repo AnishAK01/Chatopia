@@ -8,7 +8,7 @@ const useGetConversations = () => {
     const getConversations=async ()=>{
         setLoading(true);
         try {
-            const res = await fetch('https://chatopia-anishs-projects-f08bc441.vercel.app/users');
+            const res = await fetch('https://chatopia-brown.vercel.app/users');
             const data = await res.json();
             if(data.error){
                 throw new Error (data.error);
