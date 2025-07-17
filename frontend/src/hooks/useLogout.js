@@ -9,7 +9,7 @@ const useLogout = () => {
     const logout = async () => {
         setLoading(true);
         try {
-            const res = await fetch("https://chatopia-brown.vercel.app/logout", {
+            const res = await fetch("api/auth/logout", {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" }
             });
